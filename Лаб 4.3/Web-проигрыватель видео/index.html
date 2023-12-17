@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видео-проигрыватель</title>
+</head>
+<body>
+
+    <h1>Мой видео-проигрыватель</h1>
+    <input type="file" id="videoInput" accept="video/*">
+    <video controls id="videoPlayer" width="600">
+        Ваш браузер не поддерживает тег video.
+    </video>
+    <script>
+        document.getElementById('videoInput').addEventListener('change', function (event) {
+            var fileInput = event.target;
+            var videoPlayer = document.getElementById('videoPlayer');
+
+            var file = fileInput.files[0];
+            var objectURL = URL.createObjectURL(file);
+
+            videoPlayer.src = objectURL;
+        });
+    </script>
+    <p></p>
+    <small>Ваш файл не будет отправляться в наш сервер!</small>
+</body>
+</html>
